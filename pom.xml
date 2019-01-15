@@ -12,13 +12,11 @@
             <plugin>
                 <groupId>com.lazerycode.jmeter</groupId>
                 <artifactId>jmeter-maven-plugin</artifactId>
-                <version>2.8.2</version>
+                <version>DEV-SNAPSHOT</version>
                 <configuration>
+                    <errorRateThresholdInPercent>1</errorRateThresholdInPercent>
                     <testResultsTimestamp>false</testResultsTimestamp>
                     <propertiesJMeter>
-                        <!-- 
-                        <BUILD_TAG>${env.BUILD_TAG}</BUILD_TAG>
-                        -->
                         <BUILD_TAG>${project.version}</BUILD_TAG>
                         <threads>7</threads>
                         <duration>30</duration>
@@ -27,22 +25,22 @@
                         <artifact>kg.apc:jmeter-plugins-casutg:2.6</artifact>
                     </jmeterExtensions>
                     <excludedArtifacts>
-                        <exclusion>commons-pool2:commons-pool2</exclusion>
-                        <exclusion>commons-math3:commons-math3</exclusion>
-                        <exclusion>org.slf4j:slf4j-nop</exclusion>
-                        <exclusion>logkit:logkit</exclusion>
-                        <exclusion>avalon-logkit:avalon-logkit</exclusion>
-                        <exclusion>avalon-framework:avalon-framework</exclusion>
-                        <exclusion>org.apache.tika:tika-parsers</exclusion>
-                        <exclusion>org.apache.tika:tika-core</exclusion>
-                        <exclusion>excalibur-datasource:excalibur-datasource</exclusion>
-                        <exclusion>excalibur-instrument:excalibur-instrument</exclusion>
-                        <exclusion>excalibur-logger:excalibur-logger</exclusion>
-                        <exclusion>excalibur-pool:excalibur-pool-api</exclusion>
-                        <exclusion>excalibur-pool:excalibur-pool-impl</exclusion>
-                        <exclusion>excalibur-pool:excalibur-pool-instrumented</exclusion>
-                        <exclusion>org.beanshell:bsh:jar:2.0b5</exclusion>
+                       <exclusion>org.slf4j:slf4j-nop</exclusion>
+                       <exclusion>avalon-framework:*</exclusion>
+                       <exclusion>org.apache.tika:*</exclusion>
+                       <exclusion>excalibur-datasource:excalibur-datasource</exclusion>
+                       <exclusion>excalibur-instrument:excalibur-instrument</exclusion>
+                       <exclusion>excalibur-logger:excalibur-logger</exclusion>
+                       <exclusion>excalibur-pool:*</exclusion>
+                       <exclusion>org.beanshell:bsh:jar:2.0b5</exclusion>
                     </excludedArtifacts>
+                    <jMeterProcessJVMSettings>
+                        <arguments>
+                            <argument>-XX:MaxMetaspaceSize=256m</argument>
+                            <argument>-Xmx1024m</argument>
+                            <argument>-Xms1024m</argument>
+                        </arguments>
+                    </jMeterProcessJVMSettings>
                 </configuration>
                 <executions>
                     <execution>

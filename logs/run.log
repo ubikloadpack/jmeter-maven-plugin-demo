@@ -1,0 +1,103 @@
+/data/apache-maven-3.5.2/bin/mvn clean verify 
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building jmeter-maven-plugin-demo 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ jmeter-maven-plugin-demo ---
+[INFO] Deleting /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ jmeter-maven-plugin-demo ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /data/ubik/ulp/blog/jmeter-maven-plugin-demo/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ jmeter-maven-plugin-demo ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ jmeter-maven-plugin-demo ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /data/ubik/ulp/blog/jmeter-maven-plugin-demo/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ jmeter-maven-plugin-demo ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ jmeter-maven-plugin-demo ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ jmeter-maven-plugin-demo ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter-maven-plugin-demo-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> jmeter-maven-plugin:2.8.3:jmeter (jmeter-tests) > :configure @ jmeter-maven-plugin-demo >>>
+[INFO] 
+[INFO] --- jmeter-maven-plugin:2.8.3:configure (configure) @ jmeter-maven-plugin-demo ---
+[INFO] -------------------------------------------------------
+[INFO]  Configuring JMeter...
+[INFO] -------------------------------------------------------
+[INFO]  Building JMeter directory structure...
+[INFO]  Configuring JMeter artifacts :[]
+[INFO]  Populating JMeter directory ...
+[WARNING] The POM for commons-logging:commons-logging:jar:1.1.3 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO]  Copying extensions [kg.apc:jmeter-plugins-casutg:2.6] to JMeter lib/ext directory /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/lib/ext with downloadExtensionDependencies set to true ...
+[WARNING] The POM for commons-math3:commons-math3:jar:3.4.1 is missing, no dependency information available
+[WARNING] The POM for commons-pool2:commons-pool2:jar:2.3 is missing, no dependency information available
+[INFO]  Copying  JUnit libraries [] to JMeter junit lib directory /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/lib/junit with downloadLibraryDependencies set to true ...
+[INFO]  Copying test libraries [] to JMeter lib directory /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/lib with downloadLibraryDependencies set to true ...
+[INFO]  Configuring jmeter properties ...
+[INFO]  Generating JSON Test config ...
+[INFO] 
+[INFO] <<< jmeter-maven-plugin:2.8.3:jmeter (jmeter-tests) < :configure @ jmeter-maven-plugin-demo <<<
+[INFO] 
+[INFO] 
+[INFO] --- jmeter-maven-plugin:2.8.3:jmeter (jmeter-tests) @ jmeter-maven-plugin-demo ---
+[INFO]  
+[INFO] -------------------------------------------------------
+[INFO]  P E R F O R M A N C E    T E S T S
+[INFO] -------------------------------------------------------
+[INFO]  
+[INFO] Will generate HTML report in /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/reports/mvn-demo
+[INFO]  
+[INFO] Executing test: mvn-demo.jmx
+[INFO] Starting process with:[java, -Xms512M, -Xmx512M, -XX:MaxMetaspaceSize=256m, -Xmx1024m, -Xms1024m, -jar, ApacheJMeter-5.0.jar, -d, /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter, -e, -j, /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/logs/mvn-demo.jmx.log, -l, /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/results/mvn-demo.csv, -n, -o, /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/reports/mvn-demo, -t, /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/testFiles/mvn-demo.jmx]
+[INFO] Creating summariser <summary>
+[INFO] Created the tree successfully using /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/testFiles/mvn-demo.jmx
+[INFO] Starting the test @ Tue Jan 15 15:56:54 CET 2019 (1547564214874)
+[INFO] Waiting for possible Shutdown/StopTestNow/Heapdump message on port 4445
+[INFO] Got in JMeter BUILD_TAG=0.0.1-SNAPSHOT 
+[INFO] summary +      2 in 00:00:05 =    0.4/s Avg:   261 Min:   249 Max:   273 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0
+[INFO] summary +    164 in 00:00:29 =    5.6/s Avg:   178 Min:   100 Max:  1031 Err:    80 (48.78%) Active: 7 Started: 7 Finished: 0
+[INFO] summary =    166 in 00:00:34 =    4.8/s Avg:   179 Min:   100 Max:  1031 Err:    80 (48.19%)
+[INFO] summary +    298 in 00:00:30 =    9.8/s Avg:   171 Min:    99 Max:   419 Err:   149 (50.00%) Active: 4 Started: 7 Finished: 3
+[INFO] summary =    464 in 00:01:05 =    7.2/s Avg:   174 Min:    99 Max:  1031 Err:   229 (49.35%)
+[INFO] summary +     20 in 00:00:06 =    3.6/s Avg:   182 Min:   105 Max:   398 Err:    10 (50.00%) Active: 0 Started: 7 Finished: 7
+[INFO] summary =    484 in 00:01:10 =    6.9/s Avg:   174 Min:    99 Max:  1031 Err:   239 (49.38%)
+[INFO] Tidying up ...    @ Tue Jan 15 15:58:06 CET 2019 (1547564286143)
+[INFO] ... end of run
+[INFO] Completed Test: /data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/testFiles/mvn-demo.jmx
+[INFO] 
+[INFO] --- jmeter-maven-plugin:2.8.3:results (check-results) @ jmeter-maven-plugin-demo ---
+[INFO] Will scan results using format:{"resultFilesLocations":["/data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/results/mvn-demo.csv"],"resultsOutputIsCSVFormat":true,"generateReports":true}
+[INFO] Parsing results file '/data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/results/mvn-demo.csv' in format 'CSV', using failurePattern:'\bfalse\b', successPattern:'\btrue\b'
+[INFO]  
+[INFO] Performance Test Results
+[INFO]  
+[INFO] Result (.jtl) files scanned: 1
+[INFO] Successful requests:         245
+[INFO] Failed requests:             239
+[INFO] Failures:                    49.380165% (1.0% accepted)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:15 min
+[INFO] Finished at: 2019-01-15T15:58:07+01:00
+[INFO] Final Memory: 24M/526M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal com.lazerycode.jmeter:jmeter-maven-plugin:2.8.3:results (check-results) on project jmeter-maven-plugin-demo: Failing build because error percentage 49.380165 is above accepted threshold 1.0. JMeter logs are available at: '/data/ubik/ulp/blog/jmeter-maven-plugin-demo/target/jmeter/logs' -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[INFO] Shutdown detected, destroying JMeter process...
