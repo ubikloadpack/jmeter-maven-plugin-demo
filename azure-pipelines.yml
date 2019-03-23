@@ -1,0 +1,36 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml' 
+    goals: 'clean verify' # Optional
+    options: # Optional
+    publishJUnitResults: false 
+    #testResultsFiles: '**/surefire-reports/TEST-*.xml' # Required when publishJUnitResults == True
+    testRunTitle: Demo
+    codeCoverageToolOption: 'None' # Optional. Options: none, cobertura, jaCoCo
+    javaHomeOption: 'JDKVersion' # Options: jDKVersion, path
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64' # Optional. Options: x86, x64
+    mavenVersionOption: 'Default' # Options: default, path
+    mavenOptions: '-X1g' # Optional
+    mavenAuthenticateFeed: false 
+    sonarQubeRunAnalysis: false 
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
