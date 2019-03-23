@@ -30,9 +30,14 @@ steps:
     mavenAuthenticateFeed: false 
     sonarQubeRunAnalysis: false 
 
+- task: CopyFiles@2
+  inputs:
+    contents: 'target/jmeter/reports/mvn-demo/**'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+    
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)/target/jmeter/reports/mvn-demo'
+    pathtoPublish: $(Build.ArtifactStagingDirectory)
     artifactName: reportHtml
 
 - script: |
