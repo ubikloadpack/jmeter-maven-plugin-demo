@@ -26,7 +26,7 @@ steps:
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64' # Optional. Options: x86, x64
     mavenVersionOption: 'Default' # Options: default, path
-    mavenOptions: '-X1g' # Optional
+    mavenOptions: '-Xmx1g' # Optional
     mavenAuthenticateFeed: false 
     sonarQubeRunAnalysis: false 
 
