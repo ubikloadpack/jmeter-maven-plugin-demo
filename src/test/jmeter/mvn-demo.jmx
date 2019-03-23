@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1-SNAPSHOT.20190115">
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.0 r1840935">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="build-web-test-plan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -34,7 +34,14 @@
           <stringProp name="cacheKey">true</stringProp>
           <stringProp name="filename"></stringProp>
           <stringProp name="parameters">${__P(BUILD_TAG,)} </stringProp>
-          <stringProp name="script">OUT.println(&quot;Got in JMeter BUILD_TAG=&quot;+Parameters);</stringProp>
+          <stringProp name="script">import com.ubikingenierie.ubikloadpack.demo.MyCustomClass;
+
+OUT.println(&quot;Got in JMeter BUILD_TAG=&quot;+Parameters);
+
+MyCustomClass myClass = new MyCustomClass();
+myClass.doSomething(vars);
+
+OUT.println(&quot;Got vars=&quot;+vars.get(&quot;myVar&quot;));</stringProp>
           <stringProp name="scriptLanguage">groovy</stringProp>
         </JSR223Sampler>
         <hashTree/>
