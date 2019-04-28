@@ -1,0 +1,38 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- script: |
+    sudo apt-get update
+    sudo apt-get install python default-jre-headless python-tk python-pip python-dev libxml2-dev libxslt-dev zlib1g-dev net-tools
+    sudo pip install bzt
+  displayName: 'Install Taurus'
+
+steps:
+- script: |
+    bzt -h
+  displayName: 'Check Taurus Version'
+  
+steps:
+- script: |
+    bzt src/test/jmeter/test.yml
+  displayName: 'Run Taurus'
+
+- task: CopyFiles@2
+  inputs:
+    contents: './**'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: reportHtml
+
