@@ -21,7 +21,6 @@ steps:
     bzt -h
   displayName: 'Check Taurus Version'
   
-steps:
 - script: |
     bzt src/test/jmeter/test.yml
   displayName: 'Run Taurus'
