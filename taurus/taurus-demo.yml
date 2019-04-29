@@ -11,7 +11,7 @@ execution:
 
 scenarios:
   existing:
-    script: src/test/jmeter/mvn-demo.jmx
+    script: mvn-demo.jmx
 
 modules:
   jmeter:
@@ -41,8 +41,6 @@ modules:
       # disable console reporter
       disable: true  # default: auto
 
-#  cloud:
-#    test: https://a.blazemeter.com/app/#/accounts/172579/workspaces/166203/projects/297064/tests/6543068
 services:
 - module: shellexec
   run-at: local
