@@ -21,14 +21,6 @@ steps:
     docker run --rm -v taurus:/bzt-configs -v taurus-artifacts:/tmp/artifacts blazemeter/taurus *.yml
   displayName: 'Run Taurus'
 
-- script: |
-    bzt -h
-  displayName: 'Check Taurus Version'
-  
-- script: |
-    bzt src/test/jmeter/test.yml
-  displayName: 'Run Taurus'
-
 - task: CopyFiles@2
   inputs:
     contents: './taurus-artifacts/**'
