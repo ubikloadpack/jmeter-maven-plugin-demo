@@ -15,6 +15,7 @@ steps:
     sudo apt-get install python default-jre-headless python-tk python-pip python-dev libxml2-dev libxslt-dev zlib1g-dev net-tools
     sudo pip install --upgrade setuptools
     sudo pip install --upgrade pip
+    sudo pip install --upgrade urllib3
     sudo pip install bzt
   displayName: 'Install Taurus'
 
@@ -23,7 +24,7 @@ steps:
   displayName: 'Check Taurus Version'
   
 - script: |
-    bzt src/test/jmeter/test.yml
+    bzt taurus/taurus-demo.yml
   displayName: 'Run Taurus'
 
 - task: CopyFiles@2
