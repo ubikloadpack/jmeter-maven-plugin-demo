@@ -29,7 +29,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    contents: './**'
+    contents: 'taurus-artifacts/**'
     targetFolder: $(Build.ArtifactStagingDirectory)
     
 - task: PublishBuildArtifacts@1

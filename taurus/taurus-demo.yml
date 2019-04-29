@@ -1,6 +1,7 @@
 settings:
-  env:
-     JMETER_VERSION: "5.1.1"
+    artifacts-dir: taurus-artifacts/%H%M%S
+    env:
+        JMETER_VERSION: "5.1.1"
 
 execution:
 - scenario: existing
