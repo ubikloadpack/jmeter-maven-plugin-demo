@@ -18,7 +18,7 @@ steps:
     releaseType: stable
     
 - script: |
-    docker run --rm --it -v `pwd`/taurus:/bzt-configs -v `pwd`/taurus-artifacts:/tmp/artifacts blazemeter/taurus taurus-demo.yml
+    docker run --rm -v `pwd`/taurus:/bzt-configs -v `pwd`/taurus-artifacts:/tmp/artifacts blazemeter/taurus taurus-demo.yml
   displayName: 'Run Taurus'
 
 - task: CopyFiles@2
