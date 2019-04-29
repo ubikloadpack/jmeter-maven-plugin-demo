@@ -10,8 +10,8 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: echo Running JMeter with JMeter-Maven-Plugin
+  displayName: 'Show what we are doing'
 
 - task: Maven@3
   inputs:
@@ -39,8 +39,3 @@ steps:
   inputs:
     pathtoPublish: $(Build.ArtifactStagingDirectory)
     artifactName: reportHtml
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'

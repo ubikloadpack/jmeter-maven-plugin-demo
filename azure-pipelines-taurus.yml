@@ -10,6 +10,10 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
+
+- script: echo Running JMeter using Taurus
+  displayName: 'Show what we are doing'
+  
 - script: |
     sudo apt-get update
     sudo apt-get install python default-jre-headless python-tk python-pip python-dev libxml2-dev libxslt-dev zlib1g-dev net-tools
@@ -37,5 +41,4 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: $(Build.ArtifactStagingDirectory)
-    artifactName: reportHtml
-
+    artifactName: taurusArtifacts

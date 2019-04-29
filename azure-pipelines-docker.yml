@@ -11,6 +11,9 @@ pool:
 
 steps:
 
+- script: echo Running JMeter with Taurus using Docker image
+  displayName: 'Show what we are doing'
+  
 - task: DockerInstaller@0
   displayName: Docker Installer
   inputs:
@@ -23,11 +26,11 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    contents: './taurus-artifacts/**'
+    contents: '`pwd`/taurus-artifacts/**'
     targetFolder: $(Build.ArtifactStagingDirectory)
     
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: $(Build.ArtifactStagingDirectory)
-    artifactName: reportHtml
+    artifactName: taurusArtifacts
 
