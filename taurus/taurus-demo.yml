@@ -21,8 +21,8 @@ modules:
     detect-plugins: false
     properties:
       # Report configuration
-      jmeter.reportgenerator.report_title: Report for leroymerlin.fr
-      #jmeter.reportgenerator.exporter.html.series_filter: ^(vad-tunnelEtapeContinuer|lad-tunnelEtapeContinuer|AccesFP|AchatDrive|AchatLAD|HP|accesFP|ajoutPanier|c00-contextualisation|c01-clickChangerMagasin|c02-rechercherMagasin|c03-changerMagasin|cnx01-clickMonCompte|cnx02-meConnecter|cnx03-suiviCommande|cnx04-carteMaison|cnx05-listeCourse|d02-autoComplete|d03-clickLienAutoComplete|d04-clickSearch|d05-descenteProduit|d051-clickUnivers|d052-clickSousUnivers|d053-clickFamille|d06-descenteProduitLayer|d061-clickFamilleParLayer|ic00-clickIdeesConseils|ic01-scrollIdeesConseils|lad01-passerCommande|lad02-choisirLAD|lad04-continuerMaCommande|lad05-continuerApresInfosClient|lad06-reglerCommande|lc00-ListeCourse|lc01-ajouterListeCourse|lc02-validerListeCourse|lc03-voirListeCourse|remplirVille|s00-ClickServices|seo01-rebondProduit|seo02-clickFamille|vad01-passerCommande|vad02-choisirRetraitMag-CP|vad03-choisirMagasin|vad05-continuerMaCommande|vad06-continuerApresInfosClient|vad07-reglerCommande|voirPanier)(-success|-failure)?$
+      jmeter.reportgenerator.report_title: Report 
+      jmeter.reportgenerator.exporter.html.series_filter: ^(Scenario|Search|HP)(-success|-failure)?$
       jmeter.reportgenerator.overall_granularity: 60000
       jmeter.reportgenerator.apdex_satisfied_threshold: 2000
       jmeter.reportgenerator.apdex_tolerated_threshold: 8000
@@ -45,4 +45,4 @@ services:
 - module: shellexec
   run-at: local
   post-process:
-  - ~/.bzt/jmeter-taurus/${JMETER_VERSION}/bin/jmeter -p ~/.bzt/jmeter-taurus/${JMETER_VERSION}/bin/jmeter.properties -q ${TAURUS_ARTIFACTS_DIR}/jmeter-bzt.properties -Jjmeter.save.saveservice.assertion_results_failure_message=false -g ${TAURUS_ARTIFACTS_DIR}/kpi.jtl -j ${TAURUS_ARTIFACTS_DIR}/jmeter-report.log -o ${TAURUS_ARTIFACTS_DIR}/report
+  - ~/.bzt/jmeter-taurus/${JMETER_VERSION}/bin/jmeter -p ~/.bzt/jmeter-taurus/${JMETER_VERSION}/bin/jmeter.properties -q ${TAURUS_ARTIFACTS_DIR}/jmeter-bzt.properties -g ${TAURUS_ARTIFACTS_DIR}/kpi.jtl -j ${TAURUS_ARTIFACTS_DIR}/jmeter-report.log -o ${TAURUS_ARTIFACTS_DIR}/report

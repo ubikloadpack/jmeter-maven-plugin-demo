@@ -11,7 +11,7 @@ pool:
 
 steps:
 
-- script: echo Running JMeter using Docker image
+- script: echo Running JMeter with Taurus using Docker image
   displayName: 'Show what we are doing'
   
 - task: DockerInstaller@0
@@ -21,12 +21,14 @@ steps:
     releaseType: stable
     
 - script: |
-    run --rm -v `pwd`/src/test/jmeter/:/jmeter -v `pwd`/target/:/output egaillardon/jmeter-plugins -Jduration=30 -Jthreads=10 -Jrampup=10 -n -t mvn-demo.jmx -l /output/result.csv -j /output/jmeter.log -e -o /output/report
-  displayName: 'Run JMeter in Docker'
+    docker run --rm -v `pwd`/taurus:/bzt-configs -v `pwd`/taurus-artifacts:/tmp/artifacts blazemeter/taurus taurus-demo.yml
+    ls -ltr `pwd`/taurus
+    ls -ltr `pwd`/taurus-artifacts
+  displayName: 'Run Taurus'
 
 - task: CopyFiles@2
   inputs:
-    contents: '`pwd`/target/report/**'
+    contents: '`pwd`/taurus/taurus-artifacts/**'
     targetFolder: $(Build.ArtifactStagingDirectory)
     
 - task: PublishBuildArtifacts@1
