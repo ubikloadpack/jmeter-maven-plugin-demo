@@ -21,6 +21,7 @@ steps:
     releaseType: stable
     
 - script: |
+    mkdir `pwd`/target
     docker run --rm -v `pwd`/src/test/jmeter/:/jmeter -v `pwd`/target/:/output egaillardon/jmeter-plugins -Jduration=30 -Jthreads=10 -Jrampup=10 -n -t mvn-demo.jmx -l /output/result.csv -j /output/jmeter.log -e -o /output/report
   displayName: 'Run JMeter in Docker'
 
