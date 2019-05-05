@@ -22,7 +22,7 @@ steps:
     
 - script: |
     mkdir -v `pwd`/target
-    cp `pwd`/src/test/jmeter/* target/
+    cp -v `pwd`/src/test/jmeter/* `pwd`/target/
     docker run --rm egaillardon/jmeter-plugins -d `pwd`/target -Jduration=30 -Jthreads=10 -Jrampup=10 -n -t mvn-demo.jmx -l result.csv -j jmeter.log -e -o report
     ls -ltr `pwd`/target
     ls -ltr `pwd`/src/test/jmeter/
