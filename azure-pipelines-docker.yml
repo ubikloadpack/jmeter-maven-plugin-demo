@@ -27,7 +27,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    contents: '`pwd`/target/report/**'
+    contents: '`pwd`/src/test/jmeter/report/**'
     targetFolder: $(Build.ArtifactStagingDirectory)
     
 - task: PublishBuildArtifacts@1
