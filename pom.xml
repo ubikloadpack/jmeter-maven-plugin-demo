@@ -276,7 +276,7 @@
                                 </arguments>
                             </jMeterProcessJVMSettings>
                             <remoteConfig>
-                                <serverList>${server-hostname}:3010</serverList>
+                                <serverList>${serverList}</serverList>
                                 <startAndStopServersForEachTest>true</startAndStopServersForEachTest>
                             </remoteConfig>
                         </configuration>
