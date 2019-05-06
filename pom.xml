@@ -208,22 +208,12 @@
                                     <argument>-XX:MaxMetaspaceSize=256m</argument>
                                     <argument>-Xmx1024m</argument>
                                     <argument>-Xms1024m</argument>
-                                    <argument>-Djava.rmi.server.hostname=${hostname}</argument>
                                 </arguments>
                             </jMeterProcessJVMSettings>
                             <exportedRmiHostname>${hostname}</exportedRmiHostname>
                             <serverPort>3010</serverPort>
                         </configuration>
                         <executions>
-                        	<!--
-                            <execution>
-                                <id>configuration</id>
-                                <goals>
-                                    <goal>configure</goal>
-                                </goals>
-                                <phase>integration-test</phase>
-                            </execution>
-                            -->
                             <execution>
                                 <id>start-jmeter-server</id>
                                 <goals>
